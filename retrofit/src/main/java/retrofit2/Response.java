@@ -26,7 +26,8 @@ import static retrofit2.Utils.checkNotNull;
 /** An HTTP response. */
 public final class Response<T> {
   /** Create a synthetic successful response with {@code body} as the deserialized body. */
-  public static <T> Response<T> success(@Nullable T body) {
+  public static <T> Response<T> success(@Nullable T body) 
+  {
     return success(body, new okhttp3.Response.Builder() //
         .code(200)
         .message("OK")
@@ -34,6 +35,9 @@ public final class Response<T> {
         .request(new Request.Builder().url("http://localhost/").build())
         .build());
   }
+  
+  
+  
 
   /**
    * Create a synthetic successful response with an HTTP status code of {@code code} and

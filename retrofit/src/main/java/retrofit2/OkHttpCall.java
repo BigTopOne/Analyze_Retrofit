@@ -52,12 +52,18 @@ final class OkHttpCall<T> implements Call<T> {
     this.responseConverter = responseConverter;
   }
 
-  @SuppressWarnings("CloneDoesntCallSuperClone") // We are a final type & this saves clearing state.
-  @Override public OkHttpCall<T> clone() {
+  // We are a final type & this saves clearing state.
+  @SuppressWarnings("CloneDoesntCallSuperClone") 
+  @Override 
+  public OkHttpCall<T> clone() {
     return new OkHttpCall<>(requestFactory, args, callFactory, responseConverter);
   }
 
-  @Override public synchronized Request request() {
+  /*
+   *开始请求
+   */
+  @Override 
+  public synchronized Request request() {
     okhttp3.Call call = rawCall;
     if (call != null) {
       return call.request();

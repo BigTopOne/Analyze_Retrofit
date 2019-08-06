@@ -36,6 +36,8 @@ public interface CallAdapter<R, T> {
    * adapter's factory.
    */
   Type responseType();
+  
+  
 
   /**
    * Returns an instance of {@code T} which delegates to {@code call}.
@@ -83,5 +85,7 @@ public interface CallAdapter<R, T> {
     protected static Class<?> getRawType(Type type) {
       return Utils.getRawType(type);
     }
+	
+	
   }
 }
